@@ -1,8 +1,8 @@
-[
+﻿[
   {
     "descriptors": [
       {
-        "defaultMessage": "{name} mentioned you",
+        "defaultMessage": "{name} pinged you",
         "id": "notification.mention"
       }
     ],
@@ -11,11 +11,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
@@ -106,7 +106,7 @@
         "id": "status.delete"
       },
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "status.mention"
       },
       {
@@ -130,15 +130,15 @@
         "id": "status.reblog"
       },
       {
-        "defaultMessage": "This post cannot be boosted",
+        "defaultMessage": "This cannot be boosted",
         "id": "status.cannot_reblog"
       },
       {
-        "defaultMessage": "Favourite",
+        "defaultMessage": "Star",
         "id": "status.favourite"
       },
       {
-        "defaultMessage": "Expand this status",
+        "defaultMessage": "Expand",
         "id": "status.open"
       },
       {
@@ -272,7 +272,7 @@
         "id": "confirmations.mute.message"
       },
       {
-        "defaultMessage": "Are you really, really sure you want to block the entire {domain}? In most cases a few targeted blocks or mutes are sufficient and preferable.",
+        "defaultMessage": "Are you really, really sure you want to block the entire {domain}? In most cases a few targeted blocks or mutes are sufficient.",
         "id": "confirmations.domain_block.message"
       }
     ],
@@ -281,7 +281,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "account.mention"
       },
       {
@@ -293,7 +293,7 @@
         "id": "account.unblock"
       },
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
@@ -309,7 +309,7 @@
         "id": "account.mute"
       },
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
@@ -333,15 +333,15 @@
         "id": "account.unblock_domain"
       },
       {
-        "defaultMessage": "Posts",
+        "defaultMessage": "Toots",
         "id": "account.posts"
       },
       {
-        "defaultMessage": "Follows",
+        "defaultMessage": "Listens To",
         "id": "account.follows"
       },
       {
-        "defaultMessage": "Followers",
+        "defaultMessage": "Sends To",
         "id": "account.followers"
       }
     ],
@@ -350,11 +350,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
@@ -362,7 +362,7 @@
         "id": "account.requested"
       },
       {
-        "defaultMessage": "Follows you",
+        "defaultMessage": "Listens to you",
         "id": "account.follows_you"
       }
     ],
@@ -371,7 +371,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "column.blocks"
       }
     ],
@@ -380,11 +380,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "column.community"
       },
       {
-        "defaultMessage": "The local timeline is empty. Write something publicly to get the ball rolling!",
+        "defaultMessage": "You hear crickets chirping.",
         "id": "empty_column.community"
       }
     ],
@@ -393,7 +393,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "What is on your mind?",
+        "defaultMessage": "a blank slate",
         "id": "compose_form.placeholder"
       },
       {
@@ -472,7 +472,7 @@
         "id": "privacy.public.short"
       },
       {
-        "defaultMessage": "Post to public timelines",
+        "defaultMessage": "Broadcast your toots to the Federation",
         "id": "privacy.public.long"
       },
       {
@@ -480,7 +480,7 @@
         "id": "privacy.unlisted.short"
       },
       {
-        "defaultMessage": "Do not show in public timelines",
+        "defaultMessage": "Broadcast into the void (won't show in Federation or Planet)",
         "id": "privacy.unlisted.long"
       },
       {
@@ -488,7 +488,7 @@
         "id": "privacy.private.short"
       },
       {
-        "defaultMessage": "Post to followers only",
+        "defaultMessage": "Transmit to listeners only",
         "id": "privacy.private.long"
       },
       {
@@ -496,11 +496,11 @@
         "id": "privacy.direct.short"
       },
       {
-        "defaultMessage": "Post to mentioned users only",
+        "defaultMessage": "Transmit to mentioned accounts only",
         "id": "privacy.direct.long"
       },
       {
-        "defaultMessage": "Adjust status privacy",
+        "defaultMessage": "Adjust toot distribution",
         "id": "privacy.change"
       }
     ],
@@ -589,7 +589,7 @@
         "id": "compose_form.lock_disclaimer.lock"
       },
       {
-        "defaultMessage": "Your private status will be delivered to mentioned users on {domains}. Do you trust {domainsCount, plural, one {that server} other {those servers}}? Post privacy only works on Mastodon instances. If {domains} {domainsCount, plural, one {is not a Mastodon instance} other {are not Mastodon instances}}, there will be no indication that your post is private, and it may be boosted or otherwise made visible to unintended recipients.",
+        "defaultMessage": "Your private status will be delivered to mentioned users on {domains}. Do you trust {domainsCount, plural, one {that server} other {those servers}}? Distribution levels only work on Mastodon instances. If {domains} {domainsCount, plural, one {is not a Mastodon instance} other {are not Mastodon instances}}, there will be no indication that your post is private, and it may be boosted or otherwise made visible to unintended recipients.",
         "id": "compose_form.privacy_disclaimer"
       }
     ],
@@ -602,11 +602,11 @@
         "id": "getting_started.heading"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "navigation_bar.public_timeline"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "navigation_bar.community_timeline"
       },
       {
@@ -623,7 +623,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Starred",
         "id": "column.favourites"
       }
     ],
@@ -645,7 +645,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "column.follow_requests"
       }
     ],
@@ -658,7 +658,7 @@
         "id": "getting_started.heading"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "navigation_bar.public_timeline"
       },
       {
@@ -670,7 +670,7 @@
         "id": "column_subheading.settings"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "navigation_bar.community_timeline"
       },
       {
@@ -678,7 +678,7 @@
         "id": "navigation_bar.preferences"
       },
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "navigation_bar.follow_requests"
       },
       {
@@ -686,19 +686,19 @@
         "id": "navigation_bar.logout"
       },
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Starred",
         "id": "navigation_bar.favourites"
       },
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "navigation_bar.blocks"
       },
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
         "id": "navigation_bar.mutes"
       },
       {
-        "defaultMessage": "Extended information",
+        "defaultMessage": "More About the Planet",
         "id": "navigation_bar.info"
       },
       {
@@ -727,7 +727,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "There is nothing in this hashtag yet.",
+        "defaultMessage": "You hear the sound of crickets.",
         "id": "empty_column.hashtag"
       }
     ],
@@ -773,11 +773,11 @@
         "id": "empty_column.home.inactivity"
       },
       {
-        "defaultMessage": "You aren't following anyone yet. Visit {public} or use search to get started and meet other users.",
+        "defaultMessage": "You aren't following anyone yet. Visit {public} or use search to get started.",
         "id": "empty_column.home"
       },
       {
-        "defaultMessage": "the public timeline",
+        "defaultMessage": "the Federation",
         "id": "empty_column.home.public_timeline"
       }
     ],
@@ -786,7 +786,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
         "id": "column.mutes"
       }
     ],
@@ -820,15 +820,15 @@
         "id": "notifications.column_settings.sound"
       },
       {
-        "defaultMessage": "New followers:",
+        "defaultMessage": "New listeners:",
         "id": "notifications.column_settings.follow"
       },
       {
-        "defaultMessage": "Favourites:",
+        "defaultMessage": "Stars:",
         "id": "notifications.column_settings.favourite"
       },
       {
-        "defaultMessage": "Mentions:",
+        "defaultMessage": "Pings:",
         "id": "notifications.column_settings.mention"
       },
       {
@@ -841,15 +841,15 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "{name} followed you",
+        "defaultMessage": "{name} is now receiving your transmissions.",
         "id": "notification.follow"
       },
       {
-        "defaultMessage": "{name} favourited your status",
+        "defaultMessage": "{name} gave you a star!",
         "id": "notification.favourite"
       },
       {
-        "defaultMessage": "{name} boosted your status",
+        "defaultMessage": "{name} boosted your toot",
         "id": "notification.reblog"
       }
     ],
@@ -870,7 +870,7 @@
         "id": "notifications.clear"
       },
       {
-        "defaultMessage": "You don't have any notifications yet. Interact with others to start the conversation.",
+        "defaultMessage": "Reach out and Ping someone.",
         "id": "empty_column.notifications"
       }
     ],
@@ -879,11 +879,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "column.public"
       },
       {
-        "defaultMessage": "There is nothing here! Write something publicly, or manually follow users from other instances to fill it up",
+        "defaultMessage": "The vastness of space looms silently. Will your voice echo?",
         "id": "empty_column.public"
       }
     ],
@@ -917,7 +917,7 @@
         "id": "status.delete"
       },
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "status.mention"
       },
       {
@@ -929,11 +929,11 @@
         "id": "status.reblog"
       },
       {
-        "defaultMessage": "This post cannot be boosted",
+        "defaultMessage": "This cannot be boosted",
         "id": "status.cannot_reblog"
       },
       {
-        "defaultMessage": "Favourite",
+        "defaultMessage": "Star",
         "id": "status.favourite"
       },
       {
@@ -950,7 +950,7 @@
         "id": "confirmations.delete.confirm"
       },
       {
-        "defaultMessage": "Are you sure you want to delete this status?",
+        "defaultMessage": "Are you sure you want to delete this?",
         "id": "confirmations.delete.message"
       }
     ],
@@ -990,19 +990,19 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Home",
+        "defaultMessage": "Incoming Transmissions",
         "id": "column.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "column.notifications"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "column.community"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "column.public"
       },
       {
@@ -1018,7 +1018,7 @@
         "id": "onboarding.page_one.handle"
       },
       {
-        "defaultMessage": "Write posts from the compose column. You can upload images, change privacy settings, and add content warnings with the icons below.",
+        "defaultMessage": "Write from the compose column. You can upload images, change distribution settings, and add content warnings with the icons below.",
         "id": "onboarding.page_two.compose"
       },
       {
@@ -1030,15 +1030,15 @@
         "id": "onboarding.page_three.profile"
       },
       {
-        "defaultMessage": "The home timeline shows posts from people you follow.",
+        "defaultMessage": "Incoming Transmissions shows posts from people you follow.",
         "id": "onboarding.page_four.home"
       },
       {
-        "defaultMessage": "The notifications column shows when someone interacts with you.",
+        "defaultMessage": "Hailing Frequency shows when someone interacts with you.",
         "id": "onboarding.page_four.notifications"
       },
       {
-        "defaultMessage": "The local timeline shows public posts from everyone on {domain}. The federated timeline shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.",
+        "defaultMessage": "The Planet shows public posts from everyone on {domain}. The Federation shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.",
         "id": "onboarding.page_five.public_timelines"
       },
       {
@@ -1095,19 +1095,19 @@
         "id": "tabs_bar.compose"
       },
       {
-        "defaultMessage": "Home",
+        "defaultMessage": "Incoming Transmissions",
         "id": "tabs_bar.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "tabs_bar.notifications"
       },
       {
-        "defaultMessage": "Local",
+        "defaultMessage": "The Planet",
         "id": "tabs_bar.local_timeline"
       },
       {
-        "defaultMessage": "Federated",
+        "defaultMessage": "The Federation",
         "id": "tabs_bar.federated_timeline"
       }
     ],

@@ -23,7 +23,7 @@ class Notification extends ImmutablePureComponent {
             <i className='fa fa-fw fa-user-plus' />
           </div>
 
-          <FormattedMessage id='notification.follow' defaultMessage='{name} followed you' values={{ name: link }} />
+          <FormattedMessage id='notification.follow' defaultMessage='{name} is now listening' values={{ name: link }} />
         </div>
 
         <AccountContainer id={account.get('id')} withNote={false} />
@@ -42,7 +42,7 @@ class Notification extends ImmutablePureComponent {
           <div className='notification__favourite-icon-wrapper'>
             <i className='fa fa-fw fa-star star-icon'/>
           </div>
-          <FormattedMessage id='notification.favourite' defaultMessage='{name} favourited your status' values={{ name: link }} />
+          <FormattedMessage id='notification.favourite' defaultMessage='{name} gave you a star!' values={{ name: link }} />
         </div>
 
         <StatusContainer id={notification.get('status')} account={notification.get('account')} muted={true} withDismiss />
@@ -57,7 +57,7 @@ class Notification extends ImmutablePureComponent {
           <div className='notification__favourite-icon-wrapper'>
             <i className='fa fa-fw fa-retweet' />
           </div>
-          <FormattedMessage id='notification.reblog' defaultMessage='{name} boosted your status' values={{ name: link }} />
+          <FormattedMessage id='notification.reblog' defaultMessage='{name} boosted your toot' values={{ name: link }} />
         </div>
 
         <StatusContainer id={notification.get('status')} account={notification.get('account')} muted={true} withDismiss />

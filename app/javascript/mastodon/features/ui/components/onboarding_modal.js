@@ -15,10 +15,10 @@ import Immutable from 'immutable';
 const noop = () => { };
 
 const messages = defineMessages({
-  home_title: { id: 'column.home', defaultMessage: 'Home' },
-  notifications_title: { id: 'column.notifications', defaultMessage: 'Notifications' },
-  local_title: { id: 'column.community', defaultMessage: 'Local timeline' },
-  federated_title: { id: 'column.public', defaultMessage: 'Federated timeline' },
+  home_title: { id: 'column.home', defaultMessage: 'Incoming Transmissions' },
+  notifications_title: { id: 'column.notifications', defaultMessage: 'Hailing Frequency' },
+  local_title: { id: 'column.community', defaultMessage: 'The Planet' },
+  federated_title: { id: 'column.public', defaultMessage: 'The Federation' },
 });
 
 const PageOne = ({ acct, domain }) => (
@@ -62,7 +62,7 @@ const PageTwo = ({ me }) => (
       />
     </div>
 
-    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Write posts from the compose column. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
+    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Write posts from the compose column. You can upload images, change distribution settings, and add content warnings with the icons below.' /></p>
   </div>
 );
 
@@ -101,27 +101,27 @@ const PageFour = ({ domain, intl }) => (
     <div className='onboarding-modal__page-four__columns'>
       <div className='row'>
         <div>
-          <div className='figure non-interactive'><ColumnHeader icon='home' type={intl.formatMessage(messages.home_title)} /></div>
-          <p><FormattedMessage id='onboarding.page_four.home' defaultMessage='The home timeline shows posts from people you follow.'/></p>
+          <div className='figure non-interactive'><ColumnHeader icon='podcast' type={intl.formatMessage(messages.home_title)} /></div>
+          <p><FormattedMessage id='onboarding.page_four.home' defaultMessage='Incoming Transmissions shows posts from people you follow.'/></p>
         </div>
 
         <div>
-          <div className='figure non-interactive'><ColumnHeader icon='bell' type={intl.formatMessage(messages.notifications_title)} /></div>
-          <p><FormattedMessage id='onboarding.page_four.notifications' defaultMessage='The notifications column shows when someone interacts with you.' /></p>
+          <div className='figure non-interactive'><ColumnHeader icon='wifi' type={intl.formatMessage(messages.notifications_title)} /></div>
+          <p><FormattedMessage id='onboarding.page_four.notifications' defaultMessage='Hailing Frequency shows when someone interacts with you.' /></p>
         </div>
       </div>
 
       <div className='row'>
         <div>
-          <div className='figure non-interactive' style={{ marginBottom: 0 }}><ColumnHeader icon='users' type={intl.formatMessage(messages.local_title)} /></div>
+          <div className='figure non-interactive' style={{ marginBottom: 0 }}><ColumnHeader icon='globe' type={intl.formatMessage(messages.local_title)} /></div>
         </div>
 
         <div>
-          <div className='figure non-interactive' style={{ marginBottom: 0 }}><ColumnHeader icon='globe' type={intl.formatMessage(messages.federated_title)} /></div>
+          <div className='figure non-interactive' style={{ marginBottom: 0 }}><ColumnHeader icon='rocket' type={intl.formatMessage(messages.federated_title)} /></div>
         </div>
       </div>
 
-      <p><FormattedMessage id='onboarding.page_five.public_timelines' defaultMessage='The local timeline shows public posts from everyone on {domain}. The federated timeline shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.' values={{ domain }} /></p>
+      <p><FormattedMessage id='onboarding.page_five.public_timelines' defaultMessage='The Planet shows public posts from everyone on {domain}. The Federation shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.' values={{ domain }} /></p>
     </div>
   </div>
 );
