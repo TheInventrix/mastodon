@@ -80,9 +80,13 @@ $secondary-text-color:    #ffd880; // gold
   color: $ui-secondary-color;
 }
 
+.status__prepend-icon-wrapper {
+  color: $ui-highlight-color;
+}
+
 .status {
  &.status-direct {
-    background: lighten($ui-base-color, 8%);
+    background: lighten($ui-bg-color, 8%);
     .icon-button.disabled {
       color: $ui-secondary-color;
     }
@@ -111,9 +115,9 @@ $secondary-text-color:    #ffd880; // gold
 }
 
 .status__prepend {
-  color: lighten($ui-highlight-color, 26%);
+  color: $ui-highlight-color;
   .status__display-name strong {
-    color: lighten($ui-highlight-color, 26%);
+    color: $ui-highlight-color;
   }
 }
 
@@ -195,7 +199,7 @@ $secondary-text-color:    #ffd880; // gold
 }
 .notification__display-name {
   &:hover {
-    color: $ui-secondary-color;
+    color: $ui-primary-color;
   }
 }
 
@@ -277,6 +281,10 @@ body.app-body {
   background: lighten($ui-bg-color, 8%);
 }
 
+.column-header__icon {
+  color: $ui-secondary-color;
+}
+
 .empty-column-indicator {
   background: $ui-bg-color;
   a {
@@ -289,6 +297,22 @@ body.app-body {
 }
 .upload-progress__backdrop {
   background: $ui-bg-color;
+}
+
+.search-results__header {
+  color: $ui-secondary-color;
+}
+
+.search-results__hashtag {
+  color: $secondary-text-color;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $secondary-text-color;
+    text-decoration: underline;
+  }
 }
 
 .search__input {
