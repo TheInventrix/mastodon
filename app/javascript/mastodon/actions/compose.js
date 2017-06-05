@@ -95,16 +95,14 @@ export function submitCompose() {
       // To make the app more responsive, immediately get the status into the columns
       dispatch(updateTimeline('home', { ...response.data }));
 
-      if (response.data.in_reply_to_id === null) {
-        if (response.data.visibility === 'local') {
+      if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
         if (getState().getIn(['timelines', 'community', 'loaded'])) {
           dispatch(updateTimeline('community', { ...response.data }));
         }
 
-        if (response.data.visibility === 'public') {
         if (getState().getIn(['timelines', 'public', 'loaded'])) {
           dispatch(updateTimeline('public', { ...response.data }));
-        }}
+        }
       }
     }).catch(function (error) {
       dispatch(submitComposeFail(error));
