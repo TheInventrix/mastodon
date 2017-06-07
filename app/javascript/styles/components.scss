@@ -1,4 +1,4 @@
-@import 'variables';
+﻿@import 'variables';
 
 .app-body {
   -webkit-overflow-scrolling: touch;
@@ -2083,7 +2083,8 @@ button.icon-button.active i.fa-retweet {
   font-weight: 500;
 }
 
-.spoiler-button {
+.spoiler-button,
+.local-button {
   display: none;
   left: 4px;
   position: absolute;
