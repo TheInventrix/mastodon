@@ -1,5 +1,5 @@
 ﻿import { connect } from 'react-redux';
-import PrivacyDropdown from '../components/local_only_button';
+import LocalButton from '../components/local_only_button';
 import { changeComposeVisibility } from '../../../actions/compose';
 
 const mapStateToProps = local => ({
