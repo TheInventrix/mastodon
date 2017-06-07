@@ -38,7 +38,8 @@ class LocalButton extends ImmutablePureComponent {
       <div ref={this.setRef} className={`local-only ${local ? 'active' : ''}`}>
       <div className='local-only_button'>
         <IconButton icon='users' title={intl.formatMessage(messages.local)} active={local} onClick={this.handleClick} className='local-only_button-icon' size={18} inverted style={iconStyle}/>
-       </div>
+      </div>
+      </div>
     );
   }
 
