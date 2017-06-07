@@ -35,6 +35,7 @@ class ComposeForm extends ImmutablePureComponent {
     suggestions: ImmutablePropTypes.list,
     spoiler: PropTypes.bool,
     privacy: PropTypes.string,
+    local: PropTypes.bool,
     spoiler_text: PropTypes.string,
     focusDate: PropTypes.instanceOf(Date),
     preselectDate: PropTypes.instanceOf(Date),
