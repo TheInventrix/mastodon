@@ -45,4 +45,4 @@ class LocalButton extends ImmutablePureComponent {
 
 }
 
-export default connect(makeMapStateToProps)(injectIntl(LocalButton));
+export default LocalButton;
