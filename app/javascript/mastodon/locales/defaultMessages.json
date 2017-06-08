@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "descriptors": [
       {
@@ -541,6 +541,15 @@
       }
     ],
     "path": "app/javascript/mastodon/features/compose/components/upload_button.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Post to local timeline",
+        "id": "local.label"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/compose/components/local_only_button.json"
   },
   {
     "descriptors": [
