@@ -124,7 +124,7 @@ class Notifications extends React.PureComponent {
     this.scrollableArea = scrollableArea;
 
     return (
-      <Column icon='bell' active={isUnread} heading={intl.formatMessage(messages.title)}>
+      <Column icon='wifi' active={isUnread} heading={intl.formatMessage(messages.title)}>
         <ColumnSettingsContainer />
         <ClearColumnButton onClick={this.handleClear} />
         <ScrollContainer scrollKey='notifications' shouldUpdateScroll={shouldUpdateScroll}>
