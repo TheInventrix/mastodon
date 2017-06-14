@@ -28,6 +28,7 @@ export const COMPOSE_SENSITIVITY_CHANGE = 'COMPOSE_SENSITIVITY_CHANGE';
 export const COMPOSE_SPOILERNESS_CHANGE = 'COMPOSE_SPOILERNESS_CHANGE';
 export const COMPOSE_SPOILER_TEXT_CHANGE = 'COMPOSE_SPOILER_TEXT_CHANGE';
 export const COMPOSE_VISIBILITY_CHANGE  = 'COMPOSE_VISIBILITY_CHANGE';
+export const COMPOSE_LOCALITY_CHANGE = 'COMPOSE_LOCALITY_CHANGE';
 export const COMPOSE_LISTABILITY_CHANGE = 'COMPOSE_LISTABILITY_CHANGE';
 
 export const COMPOSE_EMOJI_INSERT = 'COMPOSE_EMOJI_INSERT';
@@ -85,6 +86,7 @@ export function submitCompose() {
       sensitive: getState().getIn(['compose', 'sensitive']),
       spoiler_text: getState().getIn(['compose', 'spoiler_text'], ''),
       visibility: getState().getIn(['compose', 'privacy']),
+      local: getState().getIn(['compose', 'local']),
     }, {
       headers: {
         'Idempotency-Key': getState().getIn(['compose', 'idempotencyKey']),
@@ -100,9 +102,10 @@ export function submitCompose() {
           dispatch(updateTimeline('community', { ...response.data }));
         }
 
+        if (!response.data.local) {
         if (getState().getIn(['timelines', 'public', 'loaded'])) {
           dispatch(updateTimeline('public', { ...response.data }));
-        }
+        }}
       }
     }).catch(function (error) {
       dispatch(submitComposeFail(error));
@@ -247,6 +250,12 @@ export function unmountCompose() {
 export function changeComposeSensitivity() {
   return {
     type: COMPOSE_SENSITIVITY_CHANGE,
+  };
+};
+
+export function changeComposeLocality() {
+  return {
+    type: COMPOSE_LOCALITY_CHANGE,
   };
 };
 

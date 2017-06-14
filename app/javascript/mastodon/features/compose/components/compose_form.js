@@ -12,6 +12,7 @@ import Toggle from 'react-toggle';
 import Collapsable from '../../../components/collapsable';
 import SpoilerButtonContainer from '../containers/spoiler_button_container';
 import PrivacyDropdownContainer from '../containers/privacy_dropdown_container';
+import LocalButtonContainer from '../containers/local_only_button_container';
 import SensitiveButtonContainer from '../containers/sensitive_button_container';
 import EmojiPickerDropdown from './emoji_picker_dropdown';
 import UploadFormContainer from '../containers/upload_form_container';
@@ -35,6 +36,7 @@ class ComposeForm extends ImmutablePureComponent {
     suggestions: ImmutablePropTypes.list,
     spoiler: PropTypes.bool,
     privacy: PropTypes.string,
+    local: PropTypes.bool,
     spoiler_text: PropTypes.string,
     focusDate: PropTypes.instanceOf(Date),
     preselectDate: PropTypes.instanceOf(Date),
@@ -185,6 +187,7 @@ class ComposeForm extends ImmutablePureComponent {
           <div className='compose-form__buttons'>
             <UploadButtonContainer />
             <PrivacyDropdownContainer />
+            <LocalButtonContainer />
             <SensitiveButtonContainer />
             <SpoilerButtonContainer />
           </div>
