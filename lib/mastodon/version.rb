@@ -21,7 +21,7 @@ module Mastodon
     end
 
     def flags
-      ''
+      '-tp0.1'
     end
 
     def to_a
@@ -33,7 +33,7 @@ module Mastodon
     end
 
     def repository
-      'tootsuite/mastodon'
+      'TheInventrix/mastodon'
     end
 
     def source_base_url
