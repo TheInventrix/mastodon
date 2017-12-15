@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "descriptors": [
       {
@@ -15,7 +15,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "{name} mentioned you",
+        "defaultMessage": "{name} pinged you",
         "id": "notification.mention"
       },
       {
@@ -28,11 +28,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
@@ -228,7 +228,7 @@
         "id": "status.direct"
       },
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "status.mention"
       },
       {
@@ -268,15 +268,15 @@
         "id": "status.cancel_reblog_private"
       },
       {
-        "defaultMessage": "This post cannot be boosted",
+        "defaultMessage": "This cannot be boosted",
         "id": "status.cannot_reblog"
       },
       {
-        "defaultMessage": "Favourite",
+        "defaultMessage": "Star",
         "id": "status.favourite"
       },
       {
-        "defaultMessage": "Expand this status",
+        "defaultMessage": "Expand",
         "id": "status.open"
       },
       {
@@ -465,8 +465,7 @@
         "id": "confirmations.block.message"
       },
       {
-        "defaultMessage": "Are you really, really sure you want to block the entire {domain}? In most cases a few targeted blocks or mutes are sufficient and preferable. You will not see content from that domain in any public timelines or your notifications. Your followers from that domain will be removed.",
-        "id": "confirmations.domain_block.message"
+        "defaultMessage": "Are you really, really sure you want to block the entire {domain}? In most cases a few targeted blocks or mutes are sufficient and preferable.",        "id": "confirmations.domain_block.message"
       }
     ],
     "path": "app/javascript/mastodon/features/account_timeline/containers/header_container.json"
@@ -474,7 +473,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "account.mention"
       },
       {
@@ -490,7 +489,7 @@
         "id": "account.unblock"
       },
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
@@ -506,7 +505,7 @@
         "id": "account.mute"
       },
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
@@ -529,8 +528,7 @@
         "defaultMessage": "Unhide {domain}",
         "id": "account.unblock_domain"
       },
-      {
-        "defaultMessage": "Hide boosts from @{name}",
+      {        "defaultMessage": "Hide boosts from @{name}",
         "id": "account.hide_reblogs"
       },
       {
@@ -546,11 +544,11 @@
         "id": "navigation_bar.preferences"
       },
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "navigation_bar.follow_requests"
       },
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Starred",
         "id": "navigation_bar.favourites"
       },
       {
@@ -558,15 +556,15 @@
         "id": "navigation_bar.lists"
       },
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "navigation_bar.blocks"
       },
       {
-        "defaultMessage": "Hidden domains",
+        "defaultMessage": "Blocked domains",
         "id": "navigation_bar.domain_blocks"
       },
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
         "id": "navigation_bar.mutes"
       },
       {
@@ -578,7 +576,7 @@
         "id": "account.unendorse"
       },
       {
-        "defaultMessage": "Information below may reflect the user's profile incompletely.",
+        "defaultMessage": "Information below may not display the user's complete profile.",
         "id": "account.disclaimer_full"
       },
       {
@@ -590,11 +588,11 @@
         "id": "account.posts"
       },
       {
-        "defaultMessage": "Follows",
+        "defaultMessage": "Listens To",
         "id": "account.follows"
       },
       {
-        "defaultMessage": "Followers",
+        "defaultMessage": "Sends To",
         "id": "account.followers"
       }
     ],
@@ -603,11 +601,11 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Unfollow",
+        "defaultMessage": "Disconnect",
         "id": "account.unfollow"
       },
       {
-        "defaultMessage": "Follow",
+        "defaultMessage": "Tune to Signal",
         "id": "account.follow"
       },
       {
@@ -627,7 +625,7 @@
         "id": "account.link_verified_on"
       },
       {
-        "defaultMessage": "Follows you",
+        "defaultMessage": "Listens to you",
         "id": "account.follows_you"
       },
       {
@@ -652,7 +650,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "column.blocks"
       },
       {
@@ -674,11 +672,15 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "column.community"
       },
       {
-        "defaultMessage": "The local timeline is empty. Write something publicly to get the ball rolling!",
+        "defaultMessage": "Toots",
+        "id": "timeline.posts"
+      },
+      {
+        "defaultMessage": "You hear crickets chirping.",
         "id": "empty_column.community"
       }
     ],
@@ -699,11 +701,11 @@
         "id": "navigation_bar.preferences"
       },
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "navigation_bar.follow_requests"
       },
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Starred",
         "id": "navigation_bar.favourites"
       },
       {
@@ -711,15 +713,15 @@
         "id": "navigation_bar.lists"
       },
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "navigation_bar.blocks"
       },
       {
-        "defaultMessage": "Hidden domains",
+        "defaultMessage": "Blocked domains",
         "id": "navigation_bar.domain_blocks"
       },
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
         "id": "navigation_bar.mutes"
       },
       {
@@ -732,7 +734,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "What is on your mind?",
+        "defaultMessage": "a blank slate",
         "id": "compose_form.placeholder"
       },
       {
@@ -827,7 +829,7 @@
         "id": "privacy.public.short"
       },
       {
-        "defaultMessage": "Post to public timelines",
+        "defaultMessage": "Broadcast your toots to the Federation",
         "id": "privacy.public.long"
       },
       {
@@ -835,7 +837,7 @@
         "id": "privacy.unlisted.short"
       },
       {
-        "defaultMessage": "Do not show in public timelines",
+        "defaultMessage": "Broadcast into the void (won't show in Federation or Planet)",
         "id": "privacy.unlisted.long"
       },
       {
@@ -843,7 +845,7 @@
         "id": "privacy.private.short"
       },
       {
-        "defaultMessage": "Post to followers only",
+        "defaultMessage": "Transmit to listeners only",
         "id": "privacy.private.long"
       },
       {
@@ -851,11 +853,11 @@
         "id": "privacy.direct.short"
       },
       {
-        "defaultMessage": "Post to mentioned users only",
+        "defaultMessage": "Transmit to mentioned accounts only",
         "id": "privacy.direct.long"
       },
       {
-        "defaultMessage": "Adjust status privacy",
+        "defaultMessage": "Adjust toot distribution",
         "id": "privacy.change"
       }
     ],
@@ -1025,19 +1027,21 @@
         "id": "getting_started.heading"
       },
       {
-        "defaultMessage": "Home",
+
+"defaultMessage": "Incoming Transmissions",
         "id": "tabs_bar.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "tabs_bar.notifications"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
+
         "id": "navigation_bar.public_timeline"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "navigation_bar.community_timeline"
       },
       {
@@ -1088,7 +1092,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Starred",
         "id": "column.favourites"
       },
       {
@@ -1123,7 +1127,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "column.follow_requests"
       },
       {
@@ -1136,7 +1140,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "No one follows this user yet.",
+        "defaultMessage": "No one listens to this account yet.",
         "id": "account.followers.empty"
       }
     ],
@@ -1145,7 +1149,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "This user doesn't follow anyone yet.",
+        "defaultMessage": "This account doesn't have any listeners yet.",
         "id": "account.follows.empty"
       }
     ],
@@ -1154,15 +1158,19 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Home",
+        "defaultMessage": "Getting started",
+        "id": "getting_started.heading"
+      },
+      {
+        "defaultMessage": "Incoming Transmissions",
         "id": "tabs_bar.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "tabs_bar.notifications"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "navigation_bar.public_timeline"
       },
       {
@@ -1170,7 +1178,7 @@
         "id": "column_subheading.settings"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "navigation_bar.community_timeline"
       },
       {
@@ -1182,15 +1190,19 @@
         "id": "navigation_bar.preferences"
       },
       {
-        "defaultMessage": "Follow requests",
+        "defaultMessage": "Listener requests",
         "id": "navigation_bar.follow_requests"
       },
       {
-        "defaultMessage": "Favourites",
+        "defaultMessage": "Logout",
+        "id": "navigation_bar.logout"
+      },
+      {
+        "defaultMessage": "Starred",
         "id": "navigation_bar.favourites"
       },
       {
-        "defaultMessage": "Blocked users",
+        "defaultMessage": "Blocked accounts",
         "id": "navigation_bar.blocks"
       },
       {
@@ -1198,8 +1210,12 @@
         "id": "navigation_bar.domain_blocks"
       },
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
         "id": "navigation_bar.mutes"
+      },
+      {
+        "defaultMessage": "More About the Planet",
+        "id": "navigation_bar.info"
       },
       {
         "defaultMessage": "Pinned toots",
@@ -1275,7 +1291,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "There is nothing in this hashtag yet.",
+        "defaultMessage": "You hear the sound of crickets.",
         "id": "empty_column.hashtag"
       }
     ],
@@ -1306,89 +1322,155 @@
       },
       {
         "defaultMessage": "Your home timeline is empty! Visit {public} or use search to get started and meet other users.",
+
         "id": "empty_column.home"
       },
       {
-        "defaultMessage": "the public timeline",
+        "defaultMessage": "the Federation",
         "id": "empty_column.home.public_timeline"
       }
     ],
     "path": "app/javascript/mastodon/features/home_timeline/index.json"
   },
+
   {
     "descriptors": [
+
       {
+
         "defaultMessage": "Keyboard Shortcuts",
+
         "id": "keyboard_shortcuts.heading"
+
       },
+
       {
+
         "defaultMessage": "Hotkey",
+
         "id": "keyboard_shortcuts.hotkey"
       },
+
       {
+
         "defaultMessage": "Description",
+
         "id": "keyboard_shortcuts.description"
+
       },
+
       {
+
         "defaultMessage": "to reply",
+
         "id": "keyboard_shortcuts.reply"
+
       },
+
       {
+
         "defaultMessage": "to mention author",
+
         "id": "keyboard_shortcuts.mention"
+
       },
+
       {
         "defaultMessage": "to open author's profile",
+
         "id": "keyboard_shortcuts.profile"
       },
       {
         "defaultMessage": "to favourite",
+
         "id": "keyboard_shortcuts.favourite"
+
       },
+
       {
+
         "defaultMessage": "to boost",
+
         "id": "keyboard_shortcuts.boost"
+
       },
+
       {
+
         "defaultMessage": "to open status",
+
         "id": "keyboard_shortcuts.enter"
       },
+
       {
         "defaultMessage": "to show/hide text behind CW",
+        
         "id": "keyboard_shortcuts.toggle_hidden"
       },
       {
+      
         "defaultMessage": "to move up in the list",
+
         "id": "keyboard_shortcuts.up"
+
       },
+
       {
+
         "defaultMessage": "to move down in the list",
+
         "id": "keyboard_shortcuts.down"
+
       },
+
       {
+
         "defaultMessage": "to focus a status in one of the columns",
+
         "id": "keyboard_shortcuts.column"
+
       },
+
       {
+
         "defaultMessage": "to focus the compose textarea",
+
         "id": "keyboard_shortcuts.compose"
+
       },
+
       {
+
         "defaultMessage": "to start a brand new toot",
+
         "id": "keyboard_shortcuts.toot"
+
       },
+
       {
+
         "defaultMessage": "to navigate back",
+
         "id": "keyboard_shortcuts.back"
+
       },
+
       {
+
         "defaultMessage": "to focus search",
+
         "id": "keyboard_shortcuts.search"
+
       },
+
       {
+
         "defaultMessage": "to un-focus compose textarea/search",
+
         "id": "keyboard_shortcuts.unfocus"
+
       },
+
       {
         "defaultMessage": "to open home timeline",
         "id": "keyboard_shortcuts.home"
@@ -1439,18 +1521,26 @@
       },
       {
         "defaultMessage": "to display this legend",
+
         "id": "keyboard_shortcuts.legend"
+
       }
+
     ],
+
     "path": "app/javascript/mastodon/features/keyboard_shortcuts/index.json"
+
   },
+
   {
     "descriptors": [
       {
         "defaultMessage": "Remove from list",
         "id": "lists.account.remove"
       },
+
       {
+
         "defaultMessage": "Add to list",
         "id": "lists.account.add"
       }
@@ -1524,7 +1614,8 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Muted users",
+        "defaultMessage": "Muted accounts",
+
         "id": "column.mutes"
       },
       {
@@ -1558,19 +1649,20 @@
         "id": "notifications.column_settings.sound"
       },
       {
+
         "defaultMessage": "Push notifications",
         "id": "notifications.column_settings.push"
       },
       {
-        "defaultMessage": "New followers:",
+        "defaultMessage": "New listeners:",
         "id": "notifications.column_settings.follow"
       },
       {
-        "defaultMessage": "Favourites:",
+        "defaultMessage": "Stars:",
         "id": "notifications.column_settings.favourite"
       },
       {
-        "defaultMessage": "Mentions:",
+        "defaultMessage": "Pings:",
         "id": "notifications.column_settings.mention"
       },
       {
@@ -1583,15 +1675,15 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "{name} followed you",
+        "defaultMessage": "{name} is now receiving your transmissions.",
         "id": "notification.follow"
       },
       {
-        "defaultMessage": "{name} favourited your status",
+        "defaultMessage": "{name} gave you a star!",
         "id": "notification.favourite"
       },
       {
-        "defaultMessage": "{name} boosted your status",
+        "defaultMessage": "{name} boosted your toot",
         "id": "notification.reblog"
       }
     ],
@@ -1617,7 +1709,7 @@
         "id": "column.notifications"
       },
       {
-        "defaultMessage": "You don't have any notifications yet. Interact with others to start the conversation.",
+        "defaultMessage": "Reach out and Ping someone.",
         "id": "empty_column.notifications"
       }
     ],
@@ -1635,11 +1727,19 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "column.public"
       },
       {
-        "defaultMessage": "There is nothing here! Write something publicly, or manually follow users from other instances to fill it up",
+        "defaultMessage": "Toots",
+        "id": "timeline.posts"
+      },
+      {
+        "defaultMessage": "Media",
+        "id": "timeline.media"
+      },
+      {
+        "defaultMessage": "The vastness of space looms silently. Will your voice echo?",
         "id": "empty_column.public"
       }
     ],
@@ -1648,7 +1748,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "No one has boosted this toot yet. When someone does, they will show up here.",
+        "defaultMessage": "No one has boosted this yet.",
         "id": "status.reblogs.empty"
       }
     ],
@@ -1657,7 +1757,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "A look inside...",
+        "defaultMessage": "Preview of the Federation",
         "id": "standalone.public_title"
       }
     ],
@@ -1687,7 +1787,7 @@
         "id": "status.direct"
       },
       {
-        "defaultMessage": "Mention @{name}",
+        "defaultMessage": "Ping @{name}",
         "id": "status.mention"
       },
       {
@@ -1707,11 +1807,11 @@
         "id": "status.cancel_reblog_private"
       },
       {
-        "defaultMessage": "This post cannot be boosted",
+        "defaultMessage": "This cannot be boosted",
         "id": "status.cannot_reblog"
       },
       {
-        "defaultMessage": "Favourite",
+        "defaultMessage": "Star",
         "id": "status.favourite"
       },
       {
@@ -1760,7 +1860,7 @@
         "id": "confirmations.delete.confirm"
       },
       {
-        "defaultMessage": "Are you sure you want to delete this status?",
+        "defaultMessage": "Are you sure you want to delete this?",
         "id": "confirmations.delete.message"
       },
       {
@@ -1901,43 +2001,70 @@
     ],
     "path": "app/javascript/mastodon/features/ui/components/media_modal.json"
   },
+
   {
+
     "descriptors": [
+
       {
-        "defaultMessage": "Are you sure you want to mute {name}?",
+
+<       "defaultMessage": "Are you sure you want to mute {name}?",
+
         "id": "confirmations.mute.message"
+
       },
+
       {
+
         "defaultMessage": "Hide notifications from this user?",
+
         "id": "mute_modal.hide_notifications"
+
       },
+
       {
+
         "defaultMessage": "Cancel",
+
         "id": "confirmation_modal.cancel"
+
       },
+
       {
+
         "defaultMessage": "Mute",
+
         "id": "confirmations.mute.confirm"
+
       }
+
     ],
+
     "path": "app/javascript/mastodon/features/ui/components/mute_modal.json"
   },
+
   {
+
     "descriptors": [
+
       {
-        "defaultMessage": "Home",
+
+
+
+        "defaultMessage": "Incoming Transmissions",
+
         "id": "column.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "column.notifications"
       },
       {
-        "defaultMessage": "Local timeline",
+        "defaultMessage": "The Planet",
         "id": "column.community"
       },
       {
-        "defaultMessage": "Federated timeline",
+        "defaultMessage": "The Federation",
         "id": "column.public"
       },
       {
@@ -1957,7 +2084,7 @@
         "id": "onboarding.page_one.handle_hint"
       },
       {
-        "defaultMessage": "Write posts from the compose column. You can upload images, change privacy settings, and add content warnings with the icons below.",
+        "defaultMessage": "Write from the compose column. You can upload images, change distribution settings, and add content warnings with the icons below.",
         "id": "onboarding.page_two.compose"
       },
       {
@@ -1969,15 +2096,15 @@
         "id": "onboarding.page_three.profile"
       },
       {
-        "defaultMessage": "The home timeline shows posts from people you follow.",
+        "defaultMessage": "Incoming Transmissions shows posts from people you follow.",
         "id": "onboarding.page_four.home"
       },
       {
-        "defaultMessage": "The notifications column shows when someone interacts with you.",
+        "defaultMessage": "Hailing Frequency shows when someone interacts with you.",
         "id": "onboarding.page_four.notifications"
       },
       {
-        "defaultMessage": "The local timeline shows public posts from everyone on {domain}. The federated timeline shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.",
+        "defaultMessage": "The Planet shows public posts from everyone on {domain}. The Federation shows public posts from everyone who people on {domain} follow. These are the Public Timelines, a great way to discover new people.",
         "id": "onboarding.page_five.public_timelines"
       },
       {
@@ -2063,19 +2190,27 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Home",
+        "defaultMessage": "Compose",
+        "id": "tabs_bar.compose"
+      },
+      {
+        "defaultMessage": "Incoming Transmissions",
         "id": "tabs_bar.home"
       },
       {
-        "defaultMessage": "Notifications",
+        "defaultMessage": "Hailing Frequency",
         "id": "tabs_bar.notifications"
       },
       {
-        "defaultMessage": "Local",
+        "defaultMessage": "Search",
+        "id": "tabs_bar.search"
+      },
+      {
+        "defaultMessage": "The Planet",
         "id": "tabs_bar.local_timeline"
       },
       {
-        "defaultMessage": "Federated",
+        "defaultMessage": "The Federation",
         "id": "tabs_bar.federated_timeline"
       },
       {
