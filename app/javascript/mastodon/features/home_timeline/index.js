@@ -100,7 +100,7 @@ class HomeTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef} label={intl.formatMessage(messages.title)}>
         <ColumnHeader
-          icon='home'
+          icon='podcast'
           active={hasUnread}
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}

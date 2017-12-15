@@ -85,24 +85,27 @@ class GettingStarted extends ImmutablePureComponent {
     if (multiColumn) {
       navItems.push(
         <ColumnSubheading key={i++} text={intl.formatMessage(messages.discover)} />,
-        <ColumnLink key={i++} icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
-        <ColumnLink key={i++} icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
+        <ColumnLink key={i++} icon='globe' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
+        <ColumnLink key={i++} icon='rocket' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
+        <ColumnLink key={i++} icon='info-circle' text={intl.formatMessage(messages.info)} href='/about/more' />,
         <ColumnSubheading key={i++} text={intl.formatMessage(messages.personal)} />
       );
 
       height += 34*2 + 48*2;
+
     }
 
     navItems.push(
+      <ColumnLink key={i++} icon='wifi' text={intl.formatMessage(messages.notifications)} to='/notifications' />,
       <ColumnLink key={i++} icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />,
       <ColumnLink key={i++} icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
       <ColumnLink key={i++} icon='list-ul' text={intl.formatMessage(messages.lists)} to='/lists' />
     );
 
-    height += 48*3;
+    height += 48*4;
 
     if (myAccount.get('locked')) {
-      navItems.push(<ColumnLink key={i++} icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
+      navItems.push(<ColumnLink key={i++} icon='user-plus' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
       height += 48;
     }
 
