@@ -1,2 +1,2 @@
-default: styles/application.scss
-contrast: styles/contrast.scss
+default: styles/custom.scss
+unfestive: styles/unfestive.scss
