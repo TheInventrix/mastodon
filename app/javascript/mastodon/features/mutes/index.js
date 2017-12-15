@@ -54,7 +54,7 @@ export default class Mutes extends ImmutablePureComponent {
     }
 
     return (
-      <Column icon='volume-off' heading={intl.formatMessage(messages.heading)}>
+      <Column icon='microphone-slash' heading={intl.formatMessage(messages.heading)}>
         <ColumnBackButtonSlim />
         <ScrollContainer scrollKey='mutes'>
           <div className='scrollable mutes' onScroll={this.handleScroll}>

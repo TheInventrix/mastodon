@@ -167,7 +167,7 @@ export default class Notifications extends React.PureComponent {
     return (
       <Column ref={this.setColumnRef}>
         <ColumnHeader
-          icon='bell'
+          icon='wifi'
           active={isUnread}
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}

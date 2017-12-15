@@ -83,19 +83,19 @@ export default class GettingStarted extends ImmutablePureComponent {
 
     if (multiColumn) {
       if (!columns.find(item => item.get('id') === 'HOME')) {
-        navItems.push(<ColumnLink key='0' icon='home' text={intl.formatMessage(messages.home_timeline)} to='/timelines/home' />);
+        navItems.push(<ColumnLink key='0' icon='podcast' text={intl.formatMessage(messages.home_timeline)} to='/timelines/home' />);
       }
 
       if (!columns.find(item => item.get('id') === 'NOTIFICATIONS')) {
-        navItems.push(<ColumnLink key='1' icon='bell' text={intl.formatMessage(messages.notifications)} badge={badgeDisplay(unreadNotifications)} to='/notifications' />);
+        navItems.push(<ColumnLink key='1' icon='wifi' text={intl.formatMessage(messages.notifications)} badge={badgeDisplay(unreadNotifications)} to='/notifications' />);
       }
 
       if (!columns.find(item => item.get('id') === 'COMMUNITY')) {
-        navItems.push(<ColumnLink key='2' icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />);
+        navItems.push(<ColumnLink key='2' icon='globe' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />);
       }
 
       if (!columns.find(item => item.get('id') === 'PUBLIC')) {
-        navItems.push(<ColumnLink key='3' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />);
+        navItems.push(<ColumnLink key='3' icon='rocket' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />);
       }
     }
 
@@ -109,25 +109,26 @@ export default class GettingStarted extends ImmutablePureComponent {
     );
 
     if (myAccount.get('locked')) {
-      navItems.push(<ColumnLink key='7' icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
+      navItems.push(<ColumnLink key='7' icon='user-plus' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
     }
 
     if (multiColumn) {
       navItems.push(<ColumnLink key='8' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' />);
     }
 
-    navItems.push(<ColumnLink key='9' icon='book' text={intl.formatMessage(messages.info)} href='/about/more' />);
+    navItems.push(<ColumnLink key='9' icon='info-circle' text={intl.formatMessage(messages.info)} href='/about/more' />);
 
     return (
-      <Column icon='asterisk' heading={intl.formatMessage(messages.heading)} hideHeadingOnMobile>
+      <Column icon='home' heading={intl.formatMessage(messages.heading)} hideHeadingOnMobile>
         <div className='getting-started__wrapper'>
           <ColumnSubheading text={intl.formatMessage(messages.navigation_subheading)} />
           {navItems}
           <ColumnSubheading text={intl.formatMessage(messages.settings_subheading)} />
           <ColumnLink icon='thumb-tack' text={intl.formatMessage(messages.pins)} to='/pinned' />
-          <ColumnLink icon='volume-off' text={intl.formatMessage(messages.mutes)} to='/mutes' />
+          <ColumnLink icon='microphone-slash' text={intl.formatMessage(messages.mutes)} to='/mutes' />
           <ColumnLink icon='ban' text={intl.formatMessage(messages.blocks)} to='/blocks' />
           <ColumnLink icon='minus-circle' text={intl.formatMessage(messages.domain_blocks)} to='/domain_blocks' />
+          <ColumnLink icon='info-circle' text={intl.formatMessage(messages.info)} href='/about/more' />
           <ColumnLink icon='cog' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />
           <ColumnLink icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
         </div>

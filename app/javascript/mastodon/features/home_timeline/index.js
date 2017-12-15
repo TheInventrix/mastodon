@@ -99,7 +99,7 @@ export default class HomeTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef}>
         <ColumnHeader
-          icon='home'
+          icon='podcast'
           active={hasUnread}
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}

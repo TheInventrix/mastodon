@@ -53,7 +53,7 @@ export default class PublicTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef}>
         <ColumnHeader
-          icon='globe'
+          icon='rocket'
           title={intl.formatMessage(messages.title)}
           onClick={this.handleHeaderClick}
         />
