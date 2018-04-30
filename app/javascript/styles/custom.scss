@@ -58,6 +58,9 @@ $tertiary-text-color:	  #81e69a; // light green
     }
   }
 
+  .header-wrapper .mascot {
+    bottom: 0px;
+  }
 
   .about-short {
     background: $ui-bg-color;
@@ -429,4 +432,10 @@ body.app-body {
   .figure {
     background: darken($ui-bg-color, 8%);
   }
+}
+
+// changes background image for mobile view
+@media screen and (max-width: 630px) {
+ .landing-page,
+ body { background: $ui-bg-color url('../images/background-photo-mobile.png'); }
 }
