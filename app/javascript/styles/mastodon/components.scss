@@ -40,30 +40,14 @@
     cursor: default;
   }
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  &::-moz-focus-inner,
-  &:focus,
-  &:active {
-    outline: 0 !important;
-  }
-
-  &.button-primary,
-  &.button-alternative,
-  &.button-secondary,
-  &.button-alternative-2 {
+  &.button-alternative {
     font-size: 16px;
     line-height: 36px;
     height: auto;
+    color: $ui-base-color;
+    background: $ui-primary-color;
     text-transform: none;
     padding: 4px 16px;
-  }
-
-  &.button-alternative {
-    color: $inverted-text-color;
-    background: $ui-primary-color;
 
     &:active,
     &:focus,
@@ -72,20 +56,15 @@
     }
   }
 
-  &.button-alternative-2 {
-    background: $ui-base-lighter-color;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: lighten($ui-base-lighter-color, 4%);
-    }
-  }
-
   &.button-secondary {
-    color: $darker-text-color;
+    font-size: 16px;
+    line-height: 36px;
+    height: auto;
+    color: $ui-primary-color;
+    text-transform: none;
     background: transparent;
     padding: 3px 15px;
+    border-radius: 4px;
     border: 1px solid $ui-primary-color;
 
     &:active,
