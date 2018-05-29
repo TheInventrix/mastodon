@@ -110,9 +110,8 @@ export function directCompose(account, router) {
 export function submitCompose() {
   return function (dispatch, getState) {
     const status = getState().getIn(['compose', 'text'], '');
-    const media  = getState().getIn(['compose', 'media_attachments']);
 
-    if ((!status || !status.length) && media.size === 0) {
+    if (!status || !status.length) {
       return;
     }
 
@@ -121,7 +120,7 @@ export function submitCompose() {
     api(getState).post('/api/v1/statuses', {
       status,
       in_reply_to_id: getState().getIn(['compose', 'in_reply_to'], null),
-      media_ids: media.map(item => item.get('id')),
+      media_ids: getState().getIn(['compose', 'media_attachments']).map(item => item.get('id')),
       sensitive: getState().getIn(['compose', 'sensitive']),
       spoiler_text: getState().getIn(['compose', 'spoiler_text'], ''),
       visibility: getState().getIn(['compose', 'privacy']),

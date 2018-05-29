@@ -61,7 +61,7 @@ class Status < ApplicationRecord
   has_one :stream_entry, as: :activity, inverse_of: :status
 
   validates :uri, uniqueness: true, presence: true, unless: :local?
-  validates :text, presence: true, unless: -> { with_media? || reblog? }
+  validates :text, presence: true, unless: :reblog?
   validates_with StatusLengthValidator
   validates_with DisallowedHashtagsValidator
   validates :reblog, uniqueness: { scope: :account }, if: :reblog?
@@ -155,12 +155,8 @@ class Status < ApplicationRecord
     private_visibility? || direct_visibility?
   end
 
-  def with_media?
-    media_attachments.any?
-  end
-
   def non_sensitive_with_media?
-    !sensitive? && with_media?
+    !sensitive? && media_attachments.any?
   end
 
   def emojis
