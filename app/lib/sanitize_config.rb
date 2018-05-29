@@ -13,6 +13,7 @@ class Sanitize
       class_list.keep_if do |e|
         return true if e =~ /^(h|p|u|dt|e)-/ # microformats classes
         return true if e =~ /^(mention|hashtag)$/ # semantic classes
+        return true if e =~ /^(thought_bubble|speech_bubble|out_of_character)$/ #rp classes
         return true if e =~ /^(ellipsis|invisible)$/ # link formatting classes
       end
 
@@ -25,6 +26,7 @@ class Sanitize
       attributes: {
         'a'    => %w(href rel class),
         'span' => %w(class),
+        'p'    => %w(class),
       },
 
       add_attributes: {
