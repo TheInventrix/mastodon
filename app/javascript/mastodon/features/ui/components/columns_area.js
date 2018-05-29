@@ -11,7 +11,7 @@ import BundleContainer from '../containers/bundle_container';
 import ColumnLoading from './column_loading';
 import DrawerLoading from './drawer_loading';
 import BundleColumnError from './bundle_column_error';
-import { Compose, Notifications, HomeTimeline, CommunityTimeline, PublicTimeline, HashtagTimeline, FavouritedStatuses, ListTimeline } from '../../ui/util/async-components';
+import { Compose, Notifications, HomeTimeline, CommunityTimeline, PublicTimeline, HashtagTimeline, DirectTimeline, FavouritedStatuses, ListTimeline } from '../../ui/util/async-components';
 
 import detectPassiveEvents from 'detect-passive-events';
 import { scrollRight } from '../../../scroll';
@@ -23,6 +23,7 @@ const componentMap = {
   'PUBLIC': PublicTimeline,
   'COMMUNITY': CommunityTimeline,
   'HASHTAG': HashtagTimeline,
+  'DIRECT': DirectTimeline,
   'FAVOURITES': FavouritedStatuses,
   'LIST': ListTimeline,
 };
@@ -37,6 +38,7 @@ export default class ColumnsArea extends ImmutablePureComponent {
   static propTypes = {
     intl: PropTypes.object.isRequired,
     columns: ImmutablePropTypes.list.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
     singleColumn: PropTypes.bool,
     children: PropTypes.node,
   };
@@ -144,7 +146,7 @@ export default class ColumnsArea extends ImmutablePureComponent {
   }
 
   render () {
-    const { columns, children, singleColumn } = this.props;
+    const { columns, children, singleColumn, isModalOpen } = this.props;
     const { shouldAnimate } = this.state;
 
     const columnIndex = getIndex(this.context.router.history.location.pathname);
@@ -159,13 +161,14 @@ export default class ColumnsArea extends ImmutablePureComponent {
     }
 
     return (
-      <div className='columns-area' ref={this.setRef}>
+      <div className={`columns-area ${ isModalOpen ? 'unscrollable' : '' }`} ref={this.setRef}>
         {columns.map(column => {
           const params = column.get('params', null) === null ? null : column.get('params').toJS();
+          const other  = params && params.other ? params.other : {};
 
           return (
             <BundleContainer key={column.get('uuid')} fetchComponent={componentMap[column.get('id')]} loading={this.renderLoading(column.get('id'))} error={this.renderError}>
-              {SpecificComponent => <SpecificComponent columnId={column.get('uuid')} params={params} multiColumn />}
+              {SpecificComponent => <SpecificComponent columnId={column.get('uuid')} params={params} multiColumn {...other} />}
             </BundleContainer>
           );
         })}

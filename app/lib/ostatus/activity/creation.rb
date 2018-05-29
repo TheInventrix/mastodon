@@ -15,6 +15,8 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
         @status = find_status(id)
         return [@status, false] unless @status.nil?
         @status = process_status
+      else
+        raise Mastodon::RaceConditionError
       end
     end
 
@@ -26,7 +28,10 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
     cached_reblog = reblog
     status = nil
 
-    media_attachments = save_media
+    # Skip if the reblogged status is not public
+    return if cached_reblog && !(cached_reblog.public_visibility? || cached_reblog.unlisted_visibility?)
+
+    media_attachments = save_media.take(4)
 
     ApplicationRecord.transaction do
       status = Status.create!(
@@ -36,17 +41,19 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
         reblog: cached_reblog,
         text: content,
         spoiler_text: content_warning,
-        created_at: @options[:override_timestamps] ? nil : published,
+        created_at: published,
+        override_timestamps: @options[:override_timestamps],
         reply: thread?,
         language: content_language,
         visibility: visibility_scope,
         conversation: find_or_create_conversation,
-        thread: thread? ? find_status(thread.first) || find_activitypub_status(thread.first, thread.second) : nil
+        thread: thread? ? find_status(thread.first) || find_activitypub_status(thread.first, thread.second) : nil,
+        media_attachment_ids: media_attachments.map(&:id),
+        sensitive: sensitive?
       )
 
       save_mentions(status)
       save_hashtags(status)
-      attach_media(status, media_attachments)
       save_emojis(status)
     end
 
@@ -58,7 +65,14 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
     Rails.logger.debug "Queuing remote status #{status.id} (#{id}) for distribution"
 
     LinkCrawlWorker.perform_async(status.id) unless status.spoiler_text?
-    DistributionWorker.perform_async(status.id) if @options[:override_timestamps]
+
+    # Only continue if the status is supposed to have arrived in real-time.
+    # Note that if @options[:override_timestamps] isn't set, the status
+    # may have a lower snowflake id than other existing statuses, potentially
+    # "hiding" it from paginated API calls
+    return status unless @options[:override_timestamps] || status.within_realtime_window?
+
+    DistributionWorker.perform_async(status.id)
 
     status
   end
@@ -93,6 +107,11 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
   end
 
   private
+
+  def sensitive?
+    # OStatus-specific convention (not standard)
+    @xml.xpath('./xmlns:category', xmlns: OStatus::TagManager::XMLNS).any? { |category| category['term'] == 'nsfw' }
+  end
 
   def find_or_create_conversation
     uri = @xml.at_xpath('./ostatus:conversation', ostatus: OStatus::TagManager::OS_XMLNS)&.attribute('ref')&.content
@@ -154,13 +173,6 @@ class OStatus::Activity::Creation < OStatus::Activity::Base
     end
 
     media_attachments
-  end
-
-  def attach_media(parent, media_attachments)
-    return if media_attachments.blank?
-
-    media = MediaAttachment.where(status_id: nil, id: media_attachments.take(4).map(&:id))
-    media.update(status_id: parent.id)
   end
 
   def save_emojis(parent)

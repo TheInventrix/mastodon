@@ -3,8 +3,8 @@
 #
 # Table name: invites
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
+#  id         :bigint(8)        not null, primary key
+#  user_id    :bigint(8)        not null
 #  code       :string           default(""), not null
 #  expires_at :datetime
 #  max_uses   :integer
@@ -14,7 +14,7 @@
 #
 
 class Invite < ApplicationRecord
-  belongs_to :user, required: true
+  belongs_to :user
   has_many :users, inverse_of: :invite
 
   scope :available, -> { where(expires_at: nil).or(where('expires_at >= ?', Time.now.utc)) }

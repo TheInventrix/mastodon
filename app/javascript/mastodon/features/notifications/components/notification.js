@@ -74,10 +74,8 @@ export default class Notification extends ImmutablePureComponent {
               <i className='fa fa-fw fa-user-plus' />
             </div>
 
-            <FormattedMessage id='notification.follow' defaultMessage='{name} followed you' values={{ name: link }} />
+            <FormattedMessage id='notification.follow' defaultMessage='{name} is now listening' values={{ name: link }} />
           </div>
-
-          <AccountContainer id={account.get('id')} withNote={false} hidden={this.props.hidden} />
         </div>
       </HotKeys>
     );
@@ -103,7 +101,7 @@ export default class Notification extends ImmutablePureComponent {
             <div className='notification__favourite-icon-wrapper'>
               <i className='fa fa-fw fa-star star-icon' />
             </div>
-            <FormattedMessage id='notification.favourite' defaultMessage='{name} favourited your status' values={{ name: link }} />
+            <FormattedMessage id='notification.favourite' defaultMessage='{name} gave you a star!' values={{ name: link }} />
           </div>
 
           <StatusContainer id={notification.get('status')} account={notification.get('account')} muted withDismiss hidden={!!this.props.hidden} />
@@ -120,7 +118,7 @@ export default class Notification extends ImmutablePureComponent {
             <div className='notification__favourite-icon-wrapper'>
               <i className='fa fa-fw fa-retweet' />
             </div>
-            <FormattedMessage id='notification.reblog' defaultMessage='{name} boosted your status' values={{ name: link }} />
+            <FormattedMessage id='notification.reblog' defaultMessage='{name} boosted your toot' values={{ name: link }} />
           </div>
 
           <StatusContainer id={notification.get('status')} account={notification.get('account')} muted withDismiss hidden={this.props.hidden} />
@@ -133,7 +131,7 @@ export default class Notification extends ImmutablePureComponent {
     const { notification } = this.props;
     const account          = notification.get('account');
     const displayNameHtml  = { __html: account.get('display_name_html') };
-    const link             = <Permalink className='notification__display-name' href={account.get('url')} title={account.get('acct')} to={`/accounts/${account.get('id')}`} dangerouslySetInnerHTML={displayNameHtml} />;
+    const link             = <bdi><Permalink className='notification__display-name' href={account.get('url')} title={account.get('acct')} to={`/accounts/${account.get('id')}`} dangerouslySetInnerHTML={displayNameHtml} /></bdi>;
 
     switch(notification.get('type')) {
     case 'follow':

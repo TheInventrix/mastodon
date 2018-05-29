@@ -2,9 +2,11 @@
   = site_hostname
 
 - content_for :header_tags do
+  %link{ rel: 'canonical', href: about_url }/
   %script#initial-state{ type: 'application/json' }!= json_escape(@initial_state_json)
   = javascript_pack_tag 'about', integrity: true, crossorigin: 'anonymous'
   = render partial: 'shared/og'
+
 
 .landing-page
   .header-wrapper
@@ -12,22 +14,7 @@
       = image_tag asset_pack_path('elephant-fren.png'), alt: '', role: 'presentation', class: 'mascot'
 
     .header
-      .container.links
-        .brand
-          = link_to root_url do
-            = image_tag asset_pack_path('logo_full.svg'), alt: 'Mastodon'
-
-        %ul.nav
-          %li
-            - if user_signed_in?
-              = link_to t('settings.back'), root_url, class: 'webapp-btn'
-            - else
-              = link_to t('auth.login'), new_user_session_path, class: 'webapp-btn'
-          %li= link_to t('about.about_this'), about_more_path
-          %li
-            = link_to 'https://joinmastodon.org/' do
-              = "#{t('about.other_instances')}"
-              %i.fa.fa-external-link{ style: 'padding-left: 5px;' }
+      = render 'links'
 
       .container.hero
         .floats

@@ -9,7 +9,7 @@ module Mastodon
     end
 
     def minor
-      1
+      4
     end
 
     def patch
@@ -17,11 +17,11 @@ module Mastodon
     end
 
     def pre
-      ''
+      nil
     end
 
     def flags
-      ''
+      '-tp0.1'
     end
 
     def to_a
@@ -33,7 +33,7 @@ module Mastodon
     end
 
     def source_base_url
-      'https://github.com/tootsuite/mastodon'
+      'https://github.com/TheInventrix/mastodon'
     end
 
     # specify git tag or commit hash here
@@ -47,6 +47,10 @@ module Mastodon
       else
         source_base_url
       end
+    end
+
+    def user_agent
+      @user_agent ||= "#{HTTP::Request::USER_AGENT} (Mastodon/#{Version}; +http#{Rails.configuration.x.use_https ? 's' : ''}://#{Rails.configuration.x.web_domain}/)"
     end
   end
 end

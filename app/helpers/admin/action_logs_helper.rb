@@ -34,7 +34,7 @@ module Admin::ActionLogsHelper
       link_to attributes['domain'], "https://#{attributes['domain']}"
     when 'Status'
       tmp_status = Status.new(attributes)
-      link_to tmp_status.account.acct, TagManager.instance.url_for(tmp_status)
+      link_to tmp_status.account&.acct || "##{tmp_status.account_id}", TagManager.instance.url_for(tmp_status)
     end
   end
 
@@ -45,6 +45,8 @@ module Admin::ActionLogsHelper
       log.recorded_changes.slice('domain', 'visible_in_picker')
     elsif log.target_type == 'User' && [:promote, :demote].include?(log.action)
       log.recorded_changes.slice('moderator', 'admin')
+    elsif log.target_type == 'User' && [:change_email].include?(log.action)
+      log.recorded_changes.slice('email', 'unconfirmed_email')
     elsif log.target_type == 'DomainBlock'
       log.recorded_changes.slice('severity', 'reject_media')
     elsif log.target_type == 'Status' && log.action == :update
@@ -84,9 +86,9 @@ module Admin::ActionLogsHelper
       'positive'
     when :create
       opposite_verbs?(log) ? 'negative' : 'positive'
-    when :update, :reset_password, :disable_2fa, :memorialize
+    when :update, :reset_password, :disable_2fa, :memorialize, :change_email
       'neutral'
-    when :demote, :silence, :disable, :suspend
+    when :demote, :silence, :disable, :suspend, :remove_avatar, :reopen
       'negative'
     when :destroy
       opposite_verbs?(log) ? 'positive' : 'negative'
