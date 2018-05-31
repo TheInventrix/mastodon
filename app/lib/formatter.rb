@@ -45,9 +45,25 @@ class Formatter
     pclasses = { "\u{1F4AD}" => "thought_bubble",
                  "\u{1F4AC}" => "speech_bubble",
                  "\u{1F6AB}" => "out_of_character" }
-    replace = html.gsub(/<p>[\u{1F300}-\u{1F6FF}]/) { |match|
-        pclasses[match[3]] ? "<p class='#{pclasses[match[3]]}'>#{match[3]}" : match }
-    replace.html_safe
+    chunks = html.split("\n")
+    last_class = nil
+    i = 0
+    while i < chunks.length
+      h = chunks[i]
+      h = h.gsub(/<p>[\u{1F300}-\u{1F6FF}]/) do |match|
+        if pclasses[match[3]]
+          last_class = pclasses[match[3]]
+          "<p class='#{pclasses[match[3]]}'>#{match[3]}"
+        else
+          match
+        end
+      end
+      h = h.gsub(/<p>(\.\.\.|…)/) { |match|
+          last_class ? "<p class='#{last_class}'>..." : match }
+      chunks[i] = h
+      i += 1
+    end
+    return chunks.join('')
   end
 
   def reformat(html)
