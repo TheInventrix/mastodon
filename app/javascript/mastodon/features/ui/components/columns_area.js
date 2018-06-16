@@ -6,7 +6,6 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 
 import ReactSwipeableViews from 'react-swipeable-views';
 import { links, getIndex, getLink } from './tabs_bar';
-import { Link } from 'react-router-dom';
 
 import BundleContainer from '../containers/bundle_container';
 import ColumnLoading from './column_loading';
@@ -158,18 +157,11 @@ class ColumnsArea extends ImmutablePureComponent {
     this.pendingIndex = null;
 
     if (singleColumn) {
-
       return columnIndex !== -1 ? [
         <ReactSwipeableViews key='content' index={columnIndex} onChangeIndex={this.handleSwipe} onTransitionEnd={this.handleAnimationEnd} animateTransitions={shouldAnimate} springConfig={{ duration: '400ms', delay: '0s', easeFunction: 'ease' }} style={{ height: '100%' }}>
           {links.map(this.renderView)}
-        </ReactSwipeableViews>,
-
-        floatingActionButton,
-      ] : [
-        <div className='columns-area'>{children}</div>,
-
-        floatingActionButton,
-      ];
+        </ReactSwipeableViews>
+      ) : <div className='columns-area'>{children}</div>;
     }
 
     return (
