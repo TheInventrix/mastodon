@@ -156,8 +156,13 @@ body {
   .column,
   .drawer  {
     flex: 1 0 auto;
-    padding: 0px;
   }
+}
+
+.column,
+.drawer {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .status__content,
