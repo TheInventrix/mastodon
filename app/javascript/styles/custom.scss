@@ -157,6 +157,9 @@ body {
   .drawer  {
     flex: 1 0 auto;
   }
+  .drawer {
+    max-width: 400px;
+  }
 }
 
 .column,
@@ -171,6 +174,9 @@ body {
     color: $tertiary-highlight-color;
     &.mention {
       color: $secondary-highlight-color;
+    }
+    &.hashtag {
+      color: lighten($ui-highlight-color, 12%);
     }
     .fa {
       color: lighten($ui-primary-color, 10%);
@@ -321,14 +327,16 @@ body {
   }
 }
 
-
 .notification__favourite-icon-wrapper {
   .star-icon {
-    color: $secondary-text-color;
+    color: $gold-star;
   }
 }
-.star-icon.active {
-  color: $secondary-text-color;
+
+.icon-button.active {
+  .fa-star {
+    color: $gold-star
+  }
 }
 
 .notification__display-name {
