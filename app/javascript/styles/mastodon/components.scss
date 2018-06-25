@@ -1802,7 +1802,7 @@ a.account__display-name {
 
   .column,
   .drawer {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     padding: 10px;
     padding-left: 5px;
     padding-right: 5px;
@@ -1814,6 +1814,10 @@ a.account__display-name {
     &:last-child {
       padding-right: 10px;
     }
+  }
+  
+  .drawer {
+    max-width: 360px;
   }
 
   .columns-area > div {
