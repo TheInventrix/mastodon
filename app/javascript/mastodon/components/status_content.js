@@ -173,10 +173,16 @@ export default class StatusContent extends React.PureComponent {
         </Permalink>
       )).reduce((aggregate, item) => [...aggregate, item, ' '], []);
 
+      const tagLinks = status.get('tags').map(item => (
+        <Permalink to={`/timeline/tag/${item.get('name')}`} href={item.get('name')} key={item.get('id')} className='hashtag'>
+          #<span>{item.get('name')}</span>
+        </Permalink>
+      )).reduce((aggregate, item) => [...aggregate, item, ' '], []);
+
       const toggleText = hidden ? <FormattedMessage id='status.show_more' defaultMessage='Show more' /> : <FormattedMessage id='status.show_less' defaultMessage='Show less' />;
 
       if (hidden) {
-        mentionsPlaceholder = <div>{mentionLinks}</div>;
+        mentionsPlaceholder = <div>{mentionLinks} {tagLinks}</div>;
       }
 
       return (
