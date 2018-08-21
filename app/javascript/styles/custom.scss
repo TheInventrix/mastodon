@@ -23,6 +23,25 @@ $tertiary-highlight-color:	  #81e69a; // light green
 @import 'application';
 @import 'seasonal';
 
+a.local-mention {
+  visibility: hidden;
+  margin-left: -0.9em;
+  
+  span {
+    visibility: visible;
+    white-space: pre-wrap;
+    
+    &:before {
+      visibility: visible;
+      background: url("../images/tootplanet-emoji.png") no-repeat;
+      background-size: contain;
+      width: 1.4em;
+      display: inline-block;
+      content: " ";
+    }
+  }
+}
+
 .out_of_character {
   color: $ui-primary-color;
 }
