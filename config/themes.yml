@@ -1,2 +1,3 @@
 default: styles/custom.scss
+tp-light: styles/custom.scss
 unfestive: styles/unfestive.scss

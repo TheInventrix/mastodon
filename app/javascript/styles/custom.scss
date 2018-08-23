@@ -17,7 +17,7 @@ $highlight-text-color: $ui-secondary-color;
 
 $ui-bg-color:             #10174a; // dark blue
 $gold-star:		          #ffd880; // gold
-$secondary-highlight-color:    $gold-star;
+$secondary-highlight-color:    #ffd880;
 $tertiary-highlight-color:	  #81e69a; // light green
 
 @import 'application';
@@ -50,6 +50,17 @@ a.local-mention {
 .public-timeline__section-headline,
 .account__section-headline {
   background: darken($ui-bg-color, 4%);
+}
+
+// "dark theme" compose box
+.autosuggest-textarea__textarea,
+.spoiler-input__input {
+  background: lighten($ui-bg-color, 4%);
+  color: $primary-text-color;
+}
+.compose-form__buttons-wrapper,
+.compose-form__modifiers {
+  background: $ui-bg-color;
 }
 
 //remove bg on compose column mastodon
@@ -149,7 +160,7 @@ body {
 
 //components.scss
 .compose-form {
-  background: lighten($ui-bg-color, 13%);
+//  background: lighten($ui-bg-color, 13%);
 }
 
 .compose-form__warning {
@@ -163,11 +174,11 @@ body {
 }
 
 .setting-text {
-  color: $ui-base-color;
+  color: $ui-secondary-color;
 
   &:focus,
   &:active {
-    color: $ui-primary-color;
+    color: $primary-text-color;
   }
 }
 
@@ -297,10 +308,15 @@ body {
 }
 
 .reply-indicator__content {
+  background: $ui-bg-color;
   color: lighten($ui-primary-color, 20%);
   a {
     color: lighten($secondary-highlight-color, 10%);
   }
+}
+
+.reply-indicator {
+  background: $ui-bg-color;
 }
 
 .account__action-bar__tab {
@@ -352,9 +368,9 @@ body {
   }
 }
 
-.icon-button.active {
+.icon-button .active {
   .fa-star {
-    color: $gold-star
+    color: $gold-star;
   }
 }
 
@@ -442,6 +458,10 @@ body.app-body {
   background: lighten($ui-bg-color, 8%);
 }
 
+.column-settings__section {
+  color: $ui-secondary-color;
+}
+
 .column-header__icon {
   color: $ui-secondary-color;
 }
@@ -505,4 +525,13 @@ body.app-body {
  .landing-page,
  body,
  body.app-body { background: $ui-bg-color url('../images/background-photo-mobile.png'); }
+}
+
+// recolors front page
+.column-1,
+.column-2,
+.column-3,
+.column-4,
+.landing-page__information {
+  background: none;
 }

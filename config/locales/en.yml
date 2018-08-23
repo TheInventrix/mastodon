@@ -876,7 +876,9 @@ en:
     title: "%{instance} Terms of Service and Privacy Policy"
   themes:
     contrast: High contrast
-    default: Mastodon
+    default: Toot Planet
+    tp-light: Toot Planet (light)
+    unfestive: Toot Planet (no holidays)
     mastodon-light: Mastodon (light)
   time:
     formats:
