@@ -16,7 +16,7 @@ class FanOutOnWriteService < BaseService
       deliver_to_followers(status)
       deliver_to_lists(status)
       deliver_to_local(status)
-      deliver_to_local_media(status)
+      deliver_to_local_media(status) if status.media_attachments.any?
     else
       deliver_to_self(status) if status.account.local?
       deliver_to_followers(status)
