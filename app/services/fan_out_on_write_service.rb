@@ -13,6 +13,11 @@ class FanOutOnWriteService < BaseService
     if status.direct_visibility?
       deliver_to_mentioned_followers(status)
       deliver_to_direct_timelines(status)
+    elsif status.local_visibility?
+      deliver_to_followers(status)
+      deliver_to_lists(status)
+      deliver_to_local(status)
+      deliver_to_local_media(status)
     else
       deliver_to_followers(status)
       deliver_to_lists(status)
@@ -90,6 +95,18 @@ class FanOutOnWriteService < BaseService
     Rails.logger.debug "Delivering status #{status.id} to media timeline"
 
     Redis.current.publish('timeline:public:media', @payload)
+    Redis.current.publish('timeline:public:local:media', @payload) if status.local?
+  end
+
+  def deliver_to_local(status)
+    Rails.logger.debug "Delivering status #{status.id} to local timeline"
+
+    Redis.current.publish('timeline:public:local', @payload) if status.local?
+  end
+
+  def deliver_to_local_media(status)
+    Rails.logger.debug "Delivering status #{status.id} to local media timeline"
+
     Redis.current.publish('timeline:public:local:media', @payload) if status.local?
   end
 
