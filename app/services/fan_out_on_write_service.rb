@@ -12,6 +12,11 @@ class FanOutOnWriteService < BaseService
       deliver_to_own_conversation(status)
     elsif status.limited_visibility?
       deliver_to_mentioned_followers(status)
+    elsif status.local_visibility?
+      deliver_to_followers(status)
+      deliver_to_lists(status)
+      deliver_to_local(status)
+      deliver_to_local_media(status)
     else
       deliver_to_self(status) if status.account.local?
       deliver_to_followers(status)
@@ -93,5 +98,16 @@ class FanOutOnWriteService < BaseService
 
   def deliver_to_own_conversation(status)
     AccountConversation.add_status(status.account, status)
+  end
+  def deliver_to_local(status)
+    Rails.logger.debug "Delivering status #{status.id} to local timeline"
+
+    Redis.current.publish('timeline:public:local', @payload) if status.local?
+  end
+
+  def deliver_to_local_media(status)
+    Rails.logger.debug "Delivering status #{status.id} to local media timeline"
+
+    Redis.current.publish('timeline:public:local:media', @payload) if status.local?
   end
 end

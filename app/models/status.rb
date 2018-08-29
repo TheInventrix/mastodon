@@ -37,7 +37,7 @@ class Status < ApplicationRecord
 
   update_index('statuses#status', :proper) if Chewy.enabled?
 
-  enum visibility: [:public, :unlisted, :private, :direct, :limited], _suffix: :visibility
+  enum visibility: [:public, :unlisted, :private, :direct, :local, :limited], _suffix: :visibility
 
   belongs_to :application, class_name: 'Doorkeeper::Application', optional: true
 
