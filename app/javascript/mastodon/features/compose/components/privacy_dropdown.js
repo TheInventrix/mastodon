@@ -14,7 +14,7 @@ const messages = defineMessages({
   unlisted_short: { id: 'privacy.unlisted.short', defaultMessage: 'Unlisted' },
   unlisted_long: { id: 'privacy.unlisted.long', defaultMessage: 'Do not show in public timelines' },
   local_short: { id: 'privacy.local.short', defaultMessage: 'Local' },
-  local_long: { id: 'privacy.local.long', defaultMessage: 'Post to followers and the local timeline' },
+  local_long: { id: 'privacy.local.long', defaultMessage: 'Post to local timeline and local followers' },
   private_short: { id: 'privacy.private.short', defaultMessage: 'Followers-only' },
   private_long: { id: 'privacy.private.long', defaultMessage: 'Post to followers only' },
   direct_short: { id: 'privacy.direct.short', defaultMessage: 'Direct' },
@@ -215,7 +215,7 @@ class PrivacyDropdown extends React.PureComponent {
     const { intl: { formatMessage } } = this.props;
 
     this.options = [
-      { icon: 'globe', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
+      { icon: 'rocket', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
       { icon: 'unlock-alt', value: 'unlisted', text: formatMessage(messages.unlisted_short), meta: formatMessage(messages.unlisted_long) },
       { icon: 'globe', value: 'local', text: formatMessage(messages.local_short), meta: formatMessage(messages.local_long) },
       { icon: 'lock', value: 'private', text: formatMessage(messages.private_short), meta: formatMessage(messages.private_long) },
