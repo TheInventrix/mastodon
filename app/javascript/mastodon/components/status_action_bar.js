@@ -188,7 +188,7 @@ class StatusActionBar extends ImmutablePureComponent {
     } else if (status.get('visibility') === 'private') {
       reblogIcon = 'lock';
     } else if (status.get('visibility') === 'local') {
-      reblockIcon = 'globe';
+      reblogIcon = 'globe';
     }
 
     if (status.get('in_reply_to_id', null) === null) {
