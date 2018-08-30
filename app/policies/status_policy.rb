@@ -12,7 +12,9 @@ class StatusPolicy < ApplicationPolicy
   end
 
   def show?
-    if requires_mention?
+    if local?
+      current_account.nil? || current_account.local?
+    elsif requires_mention?
       owned? || mention_exists?
     elsif private?
       owned? || following_author? || mention_exists?
@@ -43,6 +45,10 @@ class StatusPolicy < ApplicationPolicy
 
   def requires_mention?
     record.direct_visibility? || record.limited_visibility?
+  end
+
+  def local?
+    record.local_visibility?
   end
 
   def owned?
