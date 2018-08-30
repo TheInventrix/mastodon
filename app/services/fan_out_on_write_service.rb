@@ -18,7 +18,8 @@ class FanOutOnWriteService < BaseService
       deliver_to_lists(status)
     end
 
-    return if status.account.silenced? || !(status.public_visibility? || status.local_visibility?) || status.reblog?
+    return if status.account.silenced? || status.reblog?
+    return if !status.public_visibility? && !status.local_visibility?
 
     if status.local_visibility?
       deliver_to_local_hashtags(status)
