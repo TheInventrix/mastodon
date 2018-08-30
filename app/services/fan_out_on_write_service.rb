@@ -13,24 +13,28 @@ class FanOutOnWriteService < BaseService
     if status.direct_visibility?
       deliver_to_mentioned_followers(status)
       deliver_to_direct_timelines(status)
-    elsif status.local_visibility?
-      deliver_to_followers(status)
-      deliver_to_lists(status)
-      deliver_to_local(status) if !status.reply
-      deliver_to_local_media(status) if status.media_attachments.any?
     else
       deliver_to_followers(status)
       deliver_to_lists(status)
     end
 
-    return if status.account.silenced? || !status.public_visibility? || status.reblog?
+    return if status.account.silenced? || !(status.public_visibility? || status.local_visibility?) || status.reblog?
 
-    deliver_to_hashtags(status)
+    if status.local_visibility?
+      deliver_to_local_hashtags(status)
+    else
+      deliver_to_hashtags(status)
+    end
 
     return if status.reply? && status.in_reply_to_account_id != status.account_id
 
-    deliver_to_public(status)
-    deliver_to_media(status) if status.media_attachments.any?
+    if status.local_visibility?
+      deliver_to_local(status)
+      deliver_to_local_media(status) if status.media_attachments.any?
+    else
+      deliver_to_public(status)
+      deliver_to_media(status) if status.media_attachments.any?
+    end
   end
 
   private
@@ -80,6 +84,14 @@ class FanOutOnWriteService < BaseService
 
     status.tags.pluck(:name).each do |hashtag|
       Redis.current.publish("timeline:hashtag:#{hashtag}", @payload)
+      Redis.current.publish("timeline:hashtag:#{hashtag}:local", @payload) if status.local?
+    end
+  end
+
+  def deliver_to_local_hashtags(status)
+    Rails.logger.debug "Delivering status #{status.id} to local hashtags"
+
+    status.tags.pluck(:name).each do |hashtag|
       Redis.current.publish("timeline:hashtag:#{hashtag}:local", @payload) if status.local?
     end
   end
