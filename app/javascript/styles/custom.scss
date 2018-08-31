@@ -23,6 +23,15 @@ $tertiary-highlight-color:	  #81e69a; // light green
 @import 'application';
 @import 'seasonal';
 
+
+img.u-photo {
+  border-radius: 10% !important;
+  box-shadow: 0 0 0 !important;
+}
+a.account__header__avatar {
+  border-radius: 10% !important;
+}
+
 a.local-mention {
   visibility: hidden;
   margin-left: -0.9em;
@@ -52,14 +61,31 @@ a.local-mention {
   background: darken($ui-bg-color, 4%);
 }
 
+// new hashtag search
+.trends__item {
+  color: $ui-primary-color
+}
+.trends__item__name a {
+  display: block;
+  color: lighten($ui-highlight-color, 12%);
+}
+.trends__item__current,
+.trends__item__sparkline {
+    display: none;
+}
+.search-results__section h5 {
+  color: lighten($ui-highlight-color, 12%);
+}
+
+
 // "dark theme" compose box
-.autosuggest-textarea__textarea,
-.spoiler-input__input {
+.compose-form .autosuggest-textarea__textarea,
+.compose-form .spoiler-input__input {
   background: lighten($ui-bg-color, 4%);
   color: $primary-text-color;
 }
-.compose-form__buttons-wrapper,
-.compose-form__modifiers {
+.compose-form .compose-form__buttons-wrapper,
+.compose-form .compose-form__modifiers {
   background: $ui-bg-color;
 }
 
@@ -381,7 +407,7 @@ body {
 }
 
 .navigation-bar {
-  background: lighten($ui-bg-color, 13%);
+  background: $ui-bg-color;
   color: $ui-secondary-color;
 }
 
