@@ -114,8 +114,8 @@ class PublicTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef} label={intl.formatMessage(messages.title)}>
         <ColumnHeader
-          icon='rocket'
           active={hasUnread}
+          icon='space-shuttle fa-rotate-270'
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}
           onMove={this.handleMove}

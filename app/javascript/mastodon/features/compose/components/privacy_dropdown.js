@@ -215,7 +215,7 @@ class PrivacyDropdown extends React.PureComponent {
     const { intl: { formatMessage } } = this.props;
 
     this.options = [
-      { icon: 'rocket', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
+      { icon: 'space-shuttle fa-rotate-270', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
       { icon: 'unlock-alt', value: 'unlisted', text: formatMessage(messages.unlisted_short), meta: formatMessage(messages.unlisted_long) },
       { icon: 'globe', value: 'local', text: formatMessage(messages.local_short), meta: formatMessage(messages.local_long) },
       { icon: 'lock', value: 'private', text: formatMessage(messages.private_short), meta: formatMessage(messages.private_long) },

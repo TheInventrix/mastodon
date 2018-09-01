@@ -87,7 +87,7 @@ class GettingStarted extends ImmutablePureComponent {
       navItems.push(
         <ColumnSubheading key={i++} text={intl.formatMessage(messages.discover)} />,
         <ColumnLink key={i++} icon='globe' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
-        <ColumnLink key={i++} icon='rocket' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
+        <ColumnLink key={i++} icon='space-shuttle fa-rotate-270' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
         <ColumnLink key={i++} icon='info-circle' text={intl.formatMessage(messages.info)} href='/about/more' />,
         <ColumnSubheading key={i++} text={intl.formatMessage(messages.personal)} />
       );

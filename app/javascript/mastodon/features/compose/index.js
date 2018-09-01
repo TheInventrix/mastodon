@@ -77,7 +77,7 @@ class Compose extends React.PureComponent {
       const { columns } = this.props;
       header = (
         <nav className='drawer__header'>
-          <Link to='/getting-started' className='drawer__tab' title={intl.formatMessage(messages.start)} aria-label={intl.formatMessage(messages.start)}><i role='img' className='fa fa-fw fa-home' /></Link>
+          <Link to='/getting-started' className='drawer__tab' title={intl.formatMessage(messages.start)} aria-label={intl.formatMessage(messages.start)}><i role='img' className='fa fa-fw fa-bars' /></Link>
           {!columns.some(column => column.get('id') === 'HOME') && (
 
             <Link to='/timelines/home' className='drawer__tab' title={intl.formatMessage(messages.home_timeline)} aria-label={intl.formatMessage(messages.home_timeline)}><i role='img' className='fa fa-fw fa-podcast' /></Link>
@@ -95,7 +95,7 @@ class Compose extends React.PureComponent {
           )}
           {!columns.some(column => column.get('id') === 'PUBLIC') && (
 
-            <Link to='/timelines/public' className='drawer__tab' title={intl.formatMessage(messages.public)} aria-label={intl.formatMessage(messages.public)}><i role='img' className='fa fa-fw fa-rocket' /></Link>
+            <Link to='/timelines/public' className='drawer__tab' title={intl.formatMessage(messages.public)} aria-label={intl.formatMessage(messages.public)}><i role='img' className='fa fa-fw fa-space-shuttle fa-rotate-270' /></Link>
 
           )}
           <a href='/settings/preferences' className='drawer__tab' title={intl.formatMessage(messages.preferences)} aria-label={intl.formatMessage(messages.preferences)}><i role='img' className='fa fa-fw fa-cog' /></a>
