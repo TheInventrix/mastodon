@@ -274,6 +274,7 @@ Rails.application.routes.draw do
       resources :follow_requests, only: [:index] do
         member do
           post :authorize
+          post :softauth
           post :reject
         end
       end
