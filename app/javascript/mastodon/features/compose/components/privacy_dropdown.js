@@ -217,7 +217,7 @@ export default class PrivacyDropdown extends React.PureComponent {
     this.options = [
       { icon: 'globe', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
       { icon: 'unlock-alt', value: 'unlisted', text: formatMessage(messages.unlisted_short), meta: formatMessage(messages.unlisted_long) },
-      { icon: 'globe', value: 'local', text: formatMessage(messages.local_short), meta: formatMessage(messages.local_long) },
+      { icon: 'users', value: 'local', text: formatMessage(messages.local_short), meta: formatMessage(messages.local_long) },
       { icon: 'lock', value: 'private', text: formatMessage(messages.private_short), meta: formatMessage(messages.private_long) },
       { icon: 'envelope', value: 'direct', text: formatMessage(messages.direct_short), meta: formatMessage(messages.direct_long) },
     ];
