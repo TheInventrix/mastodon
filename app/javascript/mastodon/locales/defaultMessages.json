@@ -1057,6 +1057,10 @@
         "id": "follow_request.authorize"
       },
       {
+        "defaultMessage": "Semi-Authorize",
+        "id": "follow_request.softauth"
+      },
+      {
         "defaultMessage": "Reject",
         "id": "follow_request.reject"
       }
