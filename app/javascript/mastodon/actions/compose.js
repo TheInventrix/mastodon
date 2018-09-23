@@ -49,6 +49,8 @@ export const COMPOSE_UPLOAD_CHANGE_REQUEST     = 'COMPOSE_UPLOAD_UPDATE_REQUEST'
 export const COMPOSE_UPLOAD_CHANGE_SUCCESS     = 'COMPOSE_UPLOAD_UPDATE_SUCCESS';
 export const COMPOSE_UPLOAD_CHANGE_FAIL        = 'COMPOSE_UPLOAD_UPDATE_FAIL';
 
+export const COMPOSE_DOODLE_SET        = 'COMPOSE_DOODLE_SET';
+
 export function changeCompose(text) {
   return {
     type: COMPOSE_CHANGE,
@@ -130,7 +132,7 @@ export function submitCompose() {
         'Idempotency-Key': getState().getIn(['compose', 'idempotencyKey']),
       },
     }).then(function (response) {
-      dispatch(insertIntoTagHistory(response.data.tags));
+      dispatch(insertIntoTagHistory(response.data.tags, status));
       dispatch(submitComposeSuccess({ ...response.data }));
 
       // To make the app more responsive, immediately get the status into the columns
@@ -172,6 +174,13 @@ export function submitComposeFail(error) {
   return {
     type: COMPOSE_SUBMIT_FAIL,
     error: error,
+  };
+};
+
+export function doodleSet(options) {
+  return {
+    type: COMPOSE_DOODLE_SET,
+    options: options,
   };
 };
 
@@ -390,13 +399,13 @@ export function hydrateCompose() {
   };
 }
 
-function insertIntoTagHistory(tags) {
+function insertIntoTagHistory(recognizedTags, text) {
   return (dispatch, getState) => {
     const state = getState();
     const oldHistory = state.getIn(['compose', 'tagHistory']);
     const me = state.getIn(['meta', 'me']);
-    const names = tags.map(({ name }) => name);
-    const intersectedOldHistory = oldHistory.filter(name => !names.includes(name));
+    const names = recognizedTags.map(tag => text.match(new RegExp(`#${tag.name}`, 'i'))[0].slice(1));
+    const intersectedOldHistory = oldHistory.filter(name => names.findIndex(newName => newName.toLowerCase() === name.toLowerCase()) === -1);
 
     names.push(...intersectedOldHistory.toJS());
 
