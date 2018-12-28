@@ -64,7 +64,6 @@ export default class Card extends React.PureComponent {
 
   static defaultProps = {
     maxDescription: 50,
-    compact: false,
   };
 
   state = {
@@ -133,17 +132,17 @@ export default class Card extends React.PureComponent {
   }
 
   render () {
-    const { card, maxDescription, compact } = this.props;
-    const { width, embedded } = this.state;
+    const { card, maxDescription } = this.props;
+    const { width, embedded }      = this.state;
 
     if (card === null) {
       return null;
     }
 
     const provider    = card.get('provider_name').length === 0 ? decodeIDNA(getHostname(card.get('url'))) : card.get('provider_name');
-    const horizontal  = (!compact && card.get('width') > card.get('height') && (card.get('width') + 100 >= width)) || card.get('type') !== 'link' || embedded;
+    const horizontal  = card.get('width') > card.get('height') && (card.get('width') + 100 >= width) || card.get('type') !== 'link';
+    const className   = classnames('status-card', { horizontal });
     const interactive = card.get('type') !== 'link';
-    const className   = classnames('status-card', { horizontal, compact, interactive });
     const title       = interactive ? <a className='status-card__title' href={card.get('url')} title={card.get('title')} rel='noopener' target='_blank'><strong>{card.get('title')}</strong></a> : <strong className='status-card__title' title={card.get('title')}>{card.get('title')}</strong>;
     const ratio       = card.get('width') / card.get('height');
     const height      = (compact && !embedded) ? (width / (16 / 9)) : (width / ratio);
@@ -151,7 +150,7 @@ export default class Card extends React.PureComponent {
     const description = (
       <div className='status-card__content'>
         {title}
-        {!(horizontal || compact) && <p className='status-card__description'>{trim(card.get('description') || '', maxDescription)}</p>}
+        {!horizontal && <p className='status-card__description'>{trim(card.get('description') || '', maxDescription)}</p>}
         <span className='status-card__host'>{provider}</span>
       </div>
     );
@@ -176,7 +175,7 @@ export default class Card extends React.PureComponent {
             <div className='status-card__actions'>
               <div>
                 <button onClick={this.handleEmbedClick}><i className={`fa fa-${iconVariant}`} /></button>
-                {horizontal && <a href={card.get('url')} target='_blank' rel='noopener'><i className='fa fa-external-link' /></a>}
+                <a href={card.get('url')} target='_blank' rel='noopener'><i className='fa fa-external-link' /></a>
               </div>
             </div>
           </div>
@@ -186,7 +185,7 @@ export default class Card extends React.PureComponent {
       return (
         <div className={className} ref={this.setRef}>
           {embed}
-          {!compact && description}
+          {description}
         </div>
       );
     } else if (card.get('image')) {

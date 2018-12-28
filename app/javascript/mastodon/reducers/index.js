@@ -14,6 +14,7 @@ import relationships from './relationships';
 import settings from './settings';
 import push_notifications from './push_notifications';
 import status_lists from './status_lists';
+import cards from './cards';
 import mutes from './mutes';
 import reports from './reports';
 import contexts from './contexts';
@@ -45,6 +46,7 @@ const reducers = {
   relationships,
   settings,
   push_notifications,
+  cards,
   mutes,
   reports,
   contexts,

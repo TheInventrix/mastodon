@@ -90,7 +90,6 @@ class Status < ApplicationRecord
                    :conversation,
                    :status_stat,
                    :tags,
-                   :preview_cards,
                    :stream_entry,
                    active_mentions: :account,
                    reblog: [
@@ -98,7 +97,6 @@ class Status < ApplicationRecord
                      :application,
                      :stream_entry,
                      :tags,
-                     :preview_cards,
                      :media_attachments,
                      :conversation,
                      :status_stat,
@@ -164,10 +162,6 @@ class Status < ApplicationRecord
 
   def target
     reblog
-  end
-
-  def preview_card
-    preview_cards.first
   end
 
   def title
