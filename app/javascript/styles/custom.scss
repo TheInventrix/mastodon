@@ -23,6 +23,9 @@ $tertiary-highlight-color:	  #81e69a; // light green
 @import 'application';
 @import 'seasonal';
 
+.status__content__read-more-button {
+  font-size: 10px;
+}
 
 img.u-photo {
   border-radius: 10% !important;
