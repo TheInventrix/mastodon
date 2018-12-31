@@ -320,6 +320,10 @@
         "defaultMessage": "Show less",
         "id": "status.show_less"
       }
+      {
+        "defaultMessage": "View Thread",
+        "id": "status.show_thread"
+      }
     ],
     "path": "app/javascript/mastodon/components/status_content.json"
   },
