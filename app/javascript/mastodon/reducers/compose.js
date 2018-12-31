@@ -231,10 +231,7 @@ export default function compose(state = initialState, action) {
 
       if (action.status.get('spoiler_text').length > 0) {
         let spoiler_text = action.status.get('spoiler_text');
-        if ((action.status.getIn(['account', 'id']) !== me) && (!spoiler_text.match(/ cont.$/i))) {
-          spoiler_text = spoiler_text.concat(' cont.');
-        }
-        else if (!spoiler_text.match(/^re[: ]/i)) {
+        if ((action.status.getIn(['account', 'id']) !== me) && (!spoiler_text.match(/^re[: ]/i)) {
           spoiler_text = 're: '.concat(spoiler_text);
         }
         map.set('spoiler', true);
