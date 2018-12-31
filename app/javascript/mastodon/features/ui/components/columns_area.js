@@ -160,8 +160,7 @@ class ColumnsArea extends ImmutablePureComponent {
       return columnIndex !== -1 ? [
         <ReactSwipeableViews key='content' index={columnIndex} onChangeIndex={this.handleSwipe} onTransitionEnd={this.handleAnimationEnd} animateTransitions={shouldAnimate} springConfig={{ duration: '400ms', delay: '0s', easeFunction: 'ease' }} style={{ height: '100%' }}>
           {links.map(this.renderView)}
-        </ReactSwipeableViews>
-      ) : <div className='columns-area'>{children}</div>;
+        </ReactSwipeableViews>,
     }
 
     return (
