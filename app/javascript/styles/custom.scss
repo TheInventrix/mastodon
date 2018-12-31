@@ -30,6 +30,10 @@ $tertiary-highlight-color:	  #81e69a; // light green
   text-transform: uppercase;
 }
 
+.status__action-bar__counter__label {
+  width: auto;
+}
+
 img.u-photo {
   border-radius: 10% !important;
   box-shadow: 0 0 0 !important;
@@ -277,6 +281,9 @@ body {
     background: lighten($ui-bg-color, 8%);
     .icon-button.disabled {
       color: $ui-secondary-color;
+    }
+    &:not(.read) {
+      background: lighten($ui-bg-color, 12%);
     }
   }
 }
