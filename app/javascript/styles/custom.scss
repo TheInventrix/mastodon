@@ -23,6 +23,16 @@ $tertiary-highlight-color:	  #81e69a; // light green
 @import 'application';
 @import 'seasonal';
 
+// public-view toots
+.activity-stream .entry {
+  background: $ui-bg-color;
+}
+
+//instance info sidebar
+.hero-widget__text {
+  background: none;
+}
+
 .status__content__read-more-button {
   font-size: 11px;
   font-weight: bold;
@@ -34,6 +44,7 @@ $tertiary-highlight-color:	  #81e69a; // light green
   width: auto;
 }
 
+// make account icons not be circles
 img.u-photo {
   border-radius: 10% !important;
   box-shadow: 0 0 0 !important;
@@ -42,6 +53,7 @@ a.account__header__avatar {
   border-radius: 10% !important;
 }
 
+// turn the @ on local account mentions into the tootplanet
 a.local-mention {
   visibility: hidden;
   margin-left: -0.9em;
@@ -61,6 +73,7 @@ a.local-mention {
   }
 }
 
+// custom styling for RP Styles
 .out_of_character {
   color: $ui-primary-color;
 }
@@ -394,10 +407,17 @@ body {
   }
 }
 
-.account__header .account__header__fields {
+// height of bio item boxes
+.account_header .account__header__fields {
   dd,
   dt {
     padding: 2px 5px;
+  }
+}
+.public-account-bio .account__header__fields {
+  dd,
+  dt {
+    padding: 3px 5px;
   }
 }
 
