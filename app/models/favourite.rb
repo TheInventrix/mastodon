@@ -39,4 +39,8 @@ class Favourite < ApplicationRecord
     return if association(:status).loaded? && (status.marked_for_destruction? || status.marked_for_mass_destruction?)
     status&.decrement_count!(:favourites_count)
   end
+  
+  def local?
+    self.account.local?
+  end
 end
